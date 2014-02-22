@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <meta charset="utf-8">
+    <title>Minishare.js - Create simple custom share buttons</title>
+    <meta name="author" content="Pablo H. Paladino @palamago - Pablo H. Paladino @abad">
+
+  </head>
+
+  <body>
+
+  <a class="minishare-tw">twitter</a>
+  <a class="minishare-fb">facebook</a>
+  <a class="minishare-gp">google+</a>
+
+  <script type="text/javascript" src="minishare.js"></script>
+
+  <script>
+  window.onload = function() {
+      var opts = {
+          fb:{
+              title:'Try minishare.js!',
+              text:'Super tiny, simple NON-JQUERY library to create custom share buttons.'
+          },
+          tw:{
+              text:'Try minishare.js! Super tiny, simple NON-JQUERY library to create custom share buttons.',
+              related : 'palamago',
+              via: 'palamago',
+              ht: '#javascript'
+          },
+          shortener:{
+              enabled:false
+          }
+      };
+
+      MiniShare.init(opts); 
+  }
+  </script>
+
+  </body>
+
+</html>
