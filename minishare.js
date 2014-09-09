@@ -11,13 +11,15 @@ var MiniShare;
     MiniShare.buttons = {
         'tw' : [],
         'fb' : [],
-        'gp' : []
+        'gp' : [],
+        'email' : []
     };
 
     MiniShare.actions = {
         'tw' : undefined,
         'fb' : undefined,
-        'gp' : undefined
+        'gp' : undefined,
+        'email' : undefined
     };
 
     MiniShare.utils = {
@@ -67,7 +69,7 @@ var MiniShare;
             ht: '',
             via:''
         },
-        em:{
+        email:{
             subject:'Take a look!',
             body:'Take a look in my awesome site!'
         },
@@ -84,7 +86,8 @@ var MiniShare;
         MiniShare.buttons = {
             'tw' : d.querySelectorAll('.minishare-tw'),
             'fb' : d.querySelectorAll('.minishare-fb'),
-            'gp' : d.querySelectorAll('.minishare-gp')
+            'gp' : d.querySelectorAll('.minishare-gp'),
+            'email' : d.querySelectorAll('.minishare-email')
         };
 
         for (var s in MiniShare.buttons){
@@ -194,16 +197,16 @@ var MiniShare;
         MiniShare.openWindow(shareUrl+qs,title);
     }
 
-   /* MiniShare.shareMail = function(e){
+    MiniShare.actions.email = function(){
 
         var qObj = {
-            'subject': MiniShare.options.em.subject,
-            'body': MiniShare.options.em.body
+            'subject': MiniShare.options.email.subject,
+            'body': MiniShare.options.email.body
         };
 
         function cb(url){
             qObj.body += ' - ' + url;
-            var qs = $.param(qObj).replace(/\+/g,' ');
+            var qs = MiniShare.utils.param(qObj).replace(/\+/g,' ');
             var href = "mailto:?" + qs;
             window.location = href;
         }
@@ -211,7 +214,6 @@ var MiniShare;
         MiniShare.getUrl('email',cb);
 
         return false;
-    }*/
-
+    }
 
 })(window, document);
